@@ -11,4 +11,4 @@
      src/main/java/nablarch/core/util/ResourceUtil.java
 test
 test
-aaaaaaaa
+conflict1
