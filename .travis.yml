@@ -1,27 +1,30 @@
 language: java
 
 branches:
-  only: 
-    - master
-    - develop
-    - release-*
+  only:
+  - master
+  - develop
+  - release-*
 
 jdk:
   - openjdk6
-  
+
 before_install:
   - chmod +x gradlew
 
-# For Skip [`gradle assemble` by travis.]
 install: true
-  
+
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-  
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+
 script:
-  - "source <(curl -H 'Cache-Control: no-cache' -s https://raw.githubusercontent.com/travis-nab/travis-tools/master/common/travis-build.sh)"
+  - 'source <(curl -H ''Cache-Control: no-cache'' -s https://raw.githubusercontent.com/travis-nab/travis-tools/master/common/travis-build.sh)'
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+notifications:
+  slack:
+    secure: mhgW1LA5seVjeokeNLPx9giuhl+70e9tKJIdKk0T3tqGE42S+ftuVaQwInhdMcycz9Hmexe1vAYu58NxijekDMr8La2a2gHyD6Kzd5jUIQkzny9e5DuXrONo6dyDkEZI8KlH9pyGXV4Ari8395s1Opq+vhoSn/LQUQY3VENWD8njCimV14+vcm6uLOHtPkaAymciQFrwVWwTqmVSAkplMIMuZpKNoWkcD+/EUTEFmpQoshwRUYnvFv5Uj3dlxWgb23nzSmyMl//tBWMG5ypOkt+EtXAEHxxUib+hQ8yM+S2Ny5hpDHQ5Ilijd+mCpUMo7rkIAMw+zb0yjIGBaH0wsVvyT4kd0AtxZOvqnyUO6pmK0YOcK2oQ7zTDB1fy/tOCrQHBn+8BC1WR/pf+iZzhPUEGRZ4ROUBBuDwhw49v0kRCVKVF5i2VK8jX2vDdOnzc6QCJby47j3RMK/vv2hMcJJ1rLpF85XiVpt1IaKzgOmNtjDj4FVDsFId6vP1v/gUNoyyshSHTDGLtyV7CI7rvrOKqMRdYMz6SelpJzZz5GaZsEp26vumnueWgL49uPEDT3UIcmNkTk8haPvzXM7n7evDl6Jz/n+5DCf73TgAZHCZ4Z2iBqETL5z6KtYOCGXU35tJ050VazPPslEJS6G/heG6MGaK6FH4MzY7okboZfqc=
