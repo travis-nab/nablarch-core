@@ -11,9 +11,11 @@ buildscript {
   dependencies {
     classpath "com.nablarch.dev:nablarch-gradle-plugin:${nablarchGradlePluginVersion}"
     classpath "net.saliman:gradle-cobertura-plugin:${coberturaPluginVersion}"
+    classpath 'us.carrclan.david.gradle:gradle-site-plugin:0.2.0'
   }
 }
 
+apply plugin: 'site'
 apply plugin: 'com.nablarch.dev.nablarch-build'
 apply plugin: 'com.nablarch.dev.nablarch-maven-deploy'
 apply plugin: 'com.nablarch.dev.nablarch-sonarqube'
@@ -28,6 +30,22 @@ configurations {
   all*.exclude module: 'nablarch-test-support'
   all*.exclude module: 'h2'
   jmockit
+}
+
+sourceSets {
+    site {
+        resources {
+            srcDir 'build/reports/'
+        }
+    }
+}
+
+site {
+    url = 'http://ec2-52-199-35-248.ap-northeast-1.compute.amazonaws.com/test-report/nablarhc-core/4/'
+    authenticationInfo {
+        userName = 'nablarch'
+        password = "${nablarchRepoPassword}"
+    }
 }
 
 dependencies {

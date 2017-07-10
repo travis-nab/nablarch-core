@@ -27,7 +27,7 @@ public class I18NUtilTest {
         {
             Locale locale = I18NUtil.createLocale("ja");
 
-            assertThat(locale.getLanguage(), CoreMatchers.is("ja"));
+            assertThat(locale.getLanguage(), CoreMatchers.is("jaaa"));
         }
 
         {
