@@ -1,3 +1,4 @@
+dist: precise
 language: java
 branches:
   only:
@@ -5,7 +6,7 @@ branches:
   - develop
   - release-*
 jdk:
-- openjdk6
+- oraclejdk7
 before_install:
 - chmod +x gradlew
 install: true
